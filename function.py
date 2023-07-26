@@ -2,6 +2,12 @@ import datetime as dt
 from datetime import date
 
 
+def kelvin_to_celsius(kelvin):
+    return kelvin - 273.15
+
+def kelvin_to_fahrenheit(kelvin):
+    return (kelvin-273.15) * 9/5 + 32
+
 def weather(res):
     Y = input("Year : ")
     M = input("Month : ")
@@ -16,8 +22,8 @@ def weather(res):
              c = c + 1
 
     if c == 0:
-        return "Data not exist on date : " + input_date
-    return "Average temperature on " + str(input_date) + " : " + str(round(t / c, 1))
+        return "Data not exist on date : " + str(input_date)
+    return "Average temperature on " + str(input_date) + " : " + str(round(t / c, 1)) + "K"
 
 
 def wind_speed(res):
@@ -34,8 +40,8 @@ def wind_speed(res):
              c = c + 1
 
     if c == 0:
-        return "Data not exist on date : " + input_date
-    return "Wind speed on " + str(input_date) + " : " + str(round(t / c, 1))
+        return "Data not exist on date : " + str(input_date)
+    return "Average Wind speed on " + str(input_date) + " : " + str(round(t / c, 1))
 
 
 def pressure(res):
@@ -51,6 +57,6 @@ def pressure(res):
              t = t + l['main']['pressure']
              c = c + 1
     if c == 0:
-        return "Data not exist on date : " + input_date
+        return "Data not exist on date : " + str(input_date)
 
-    return "pressure on " + str(input_date) + " : " + str(round(t / c, 1))
+    return "Average pressure on " + str(input_date) + " : " + str(round(t / c, 1))
